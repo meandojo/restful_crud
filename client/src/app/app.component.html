@@ -1,0 +1,20 @@
+
+
+<h1>New Message</h1>
+<form action="">
+  <p>Message: <input type="text" name="content" [(ngModel)]="formMessage.content"> <button (click)="buttonSubmit()">Create!</button></p>
+</form>
+
+<h1>Message List</h1>
+<ul>
+  <li *ngFor="let message of allMessages"><div>
+    <p>{{message.content}}</p>
+    <p><button (click)="showMessage(message._id)">Edit</button> <button (click)="deleteMessage(message._id)">Delete</button></p>
+  </div></li>
+</ul>
+
+<div *ngIf="oneMessage">
+  <p>Message: <input type="text" name="content" [(ngModel)]="oneMessage.content" value="{{oneMessage.content}}"></p>
+  <p>Created On: {{oneMessage.createdAt}}</p>
+  <button (click)="updateMessage()">Edit Message</button>
+</div>
